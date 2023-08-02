@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: staging-certificate
+  namespace: <yournamespace>
+spec:
+  secretName: <generatedcertificatetlsname>
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  commonName: hostedzone
+  dnsNames:
+  - "*.example.com"
+  - "example.com"
